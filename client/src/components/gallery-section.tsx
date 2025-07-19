@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import image1 from "@assets/Screen Shot 2025-07-19 at 3.12.53 PM_1752956050286.png";
+import image2 from "@assets/Screen Shot 2025-07-19 at 3.12.35 PM_1752956051849.png"; 
+import image3 from "@assets/Screen Shot 2025-07-19 at 3.12.19 PM_1752956053450.png";
+import image4 from "@assets/Screen Shot 2025-07-19 at 3.12.01 PM_1752956055150.png";
+import image5 from "@assets/Screen Shot 2025-07-19 at 3.11.34 PM_1752956059645.png";
 
 export default function GallerySection() {
   const ref = useRef(null);
@@ -8,34 +13,29 @@ export default function GallerySection() {
 
   const galleryImages = [
     {
-      src: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600",
-      alt: "Modern professional haircut with clean fade",
+      src: image1,
+      alt: "Professional fade with precise line work - Authentic Cuts signature style",
       accent: "red",
     },
     {
-      src: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600",
-      alt: "Professional beard trim and grooming",
+      src: image2, 
+      alt: "Modern fade with intricate design patterns by our master barbers",
       accent: "blue",
     },
     {
-      src: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600",
-      alt: "Close-up of precision scissor cutting technique",
+      src: image3,
+      alt: "Clean taper fade showcasing our attention to detail",
       accent: "red",
     },
     {
-      src: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600",
-      alt: "Contemporary men's haircut with textured styling",
+      src: image4,
+      alt: "Professional barber service in action at Authentic Cuts",
       accent: "blue",
     },
     {
-      src: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600",
-      alt: "Traditional straight razor shave with hot towel treatment",
+      src: image5,
+      alt: "Expert beard trimming and styling services",
       accent: "red",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600",
-      alt: "Finished professional haircut with modern styling",
-      accent: "blue",
     },
   ];
 
@@ -72,34 +72,42 @@ export default function GallerySection() {
               key={index}
               initial={{ 
                 opacity: 0, 
-                scale: 0.6, 
-                rotateY: -30,
-                y: 60
+                scale: 0.3, 
+                rotateY: -60,
+                rotateX: -45,
+                y: 100,
+                x: index % 2 === 0 ? -100 : 100
               }}
               animate={isInView ? { 
                 opacity: 1, 
                 scale: 1, 
                 rotateY: 0,
-                y: 0
+                rotateX: 0,
+                y: 0,
+                x: 0
               } : { 
                 opacity: 0, 
-                scale: 0.6, 
-                rotateY: -30,
-                y: 60
+                scale: 0.3, 
+                rotateY: -60,
+                rotateX: -45,
+                y: 100,
+                x: index % 2 === 0 ? -100 : 100
               }}
               transition={{ 
-                duration: 1, 
-                delay: 0.1 * index,
+                duration: 1.4, 
+                delay: 0.15 * index,
                 type: "spring",
-                stiffness: 100
+                stiffness: 80,
+                damping: 12
               }}
               whileHover={{ 
-                scale: 1.05,
-                rotateY: 5,
-                z: 50,
-                transition: { duration: 0.3 }
+                scale: 1.08,
+                rotateY: 8,
+                rotateX: 3,
+                z: 100,
+                transition: { duration: 0.4, type: "spring", stiffness: 200 }
               }}
-              className="gallery-item rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl group relative"
+              className="gallery-item rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl group relative perspective-1000"
             >
               {/* Border accent with colors */}
               <motion.div
@@ -125,18 +133,75 @@ export default function GallerySection() {
                 transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
               />
               
-              <motion.img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-64 object-cover transition-all duration-500 group-hover:brightness-110"
-                initial={{ scale: 1.1 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 1, delay: 0.2 * index }}
-                whileHover={{ 
-                  scale: 1.15,
-                  transition: { duration: 0.4 }
-                }}
-              />
+              <motion.div className="relative overflow-hidden">
+                {/* Image reveal mask */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-primary via-red-500 to-primary z-20"
+                  initial={{ x: "0%" }}
+                  animate={isInView ? { x: "100%" } : { x: "0%" }}
+                  transition={{ 
+                    duration: 1.2, 
+                    delay: 0.3 * index,
+                    ease: "easeInOut"
+                  }}
+                />
+                
+                {/* Secondary reveal effect */}
+                <motion.div
+                  className="absolute inset-0 bg-white z-10"
+                  initial={{ x: "0%" }}
+                  animate={isInView ? { x: "100%" } : { x: "0%" }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: 0.5 * index,
+                    ease: "easeOut"
+                  }}
+                />
+
+                <motion.img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-64 object-cover transition-all duration-500 group-hover:brightness-110 filter"
+                  initial={{ 
+                    scale: 1.3,
+                    filter: "blur(10px) brightness(0.3)"
+                  }}
+                  animate={isInView ? { 
+                    scale: 1,
+                    filter: "blur(0px) brightness(1)"
+                  } : {
+                    scale: 1.3,
+                    filter: "blur(10px) brightness(0.3)"
+                  }}
+                  transition={{ 
+                    duration: 1.5, 
+                    delay: 0.4 * index,
+                    ease: "easeOut"
+                  }}
+                  whileHover={{ 
+                    scale: 1.2,
+                    filter: "blur(0px) brightness(1.1) contrast(1.1)",
+                    transition: { duration: 0.5 }
+                  }}
+                />
+
+                {/* Glowing border reveal */}
+                <motion.div
+                  className={`absolute inset-0 border-4 ${
+                    image.accent === 'red' ? 'border-red-400' : 'border-blue-400'
+                  } rounded-lg opacity-0`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { 
+                    opacity: [0, 1, 0],
+                    scale: [0.8, 1.1, 1]
+                  } : { opacity: 0, scale: 0.8 }}
+                  transition={{ 
+                    duration: 2, 
+                    delay: 0.6 * index,
+                    times: [0, 0.5, 1]
+                  }}
+                />
+              </motion.div>
               
               {/* Overlay with slide-up animation */}
               <motion.div

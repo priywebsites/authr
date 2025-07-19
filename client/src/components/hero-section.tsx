@@ -79,6 +79,85 @@ export default function HeroSection() {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 3 }}
       />
 
+      {/* Additional Enhanced Floating Elements */}
+      <motion.div
+        className="absolute top-24 left-1/3 w-5 h-5 bg-red-300/50 rounded-full"
+        animate={{
+          y: [0, -40, 0],
+          x: [0, 20, 0],
+          opacity: [0.3, 0.8, 0.3],
+          scale: [0.8, 1.5, 0.8]
+        }}
+        transition={{ duration: 11, repeat: Infinity, delay: 1.5 }}
+      />
+
+      <motion.div
+        className="absolute bottom-32 right-1/3 w-7 h-7 bg-blue-300/35 rounded-full"
+        animate={{
+          y: [0, 30, 0],
+          rotate: [0, 180, 360],
+          opacity: [0.4, 0.9, 0.4]
+        }}
+        transition={{ duration: 8, repeat: Infinity, delay: 2.5 }}
+      />
+
+      <motion.div
+        className="absolute top-1/2 right-12 text-red-300/40"
+        animate={{
+          rotate: [0, -360],
+          scale: [0.8, 1.6, 0.8],
+          x: [0, 25, 0],
+          y: [0, -15, 0]
+        }}
+        transition={{ duration: 13, repeat: Infinity, delay: 4 }}
+      >
+        <Star size={16} />
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-1/3 left-12 w-4 h-4 bg-gradient-to-r from-red-400 to-blue-400 rounded-full"
+        animate={{
+          y: [0, -35, 0],
+          x: [0, -20, 0],
+          scale: [1, 2, 1],
+          rotate: [0, 180, 360]
+        }}
+        transition={{ duration: 12, repeat: Infinity, delay: 5.5 }}
+      />
+
+      {/* Orbiting particles */}
+      <motion.div
+        className="absolute top-1/4 right-1/4 w-3 h-3 bg-red-400/50 rounded-full"
+        animate={{
+          x: [0, 50, 0, -50, 0],
+          y: [0, -25, -50, -25, 0],
+          opacity: [0.5, 1, 0.5, 1, 0.5]
+        }}
+        transition={{ duration: 15, repeat: Infinity }}
+      />
+
+      <motion.div
+        className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-blue-400/60 rounded-full"
+        animate={{
+          x: [0, -40, 0, 40, 0],
+          y: [0, 20, 40, 20, 0],
+          scale: [1, 1.8, 1, 1.8, 1]
+        }}
+        transition={{ duration: 16, repeat: Infinity, delay: 7 }}
+      />
+
+      <motion.div
+        className="absolute top-3/4 right-16 text-blue-300/30"
+        animate={{
+          rotate: [0, 360],
+          scale: [1, 1.4, 1],
+          y: [0, -25, 0]
+        }}
+        transition={{ duration: 14, repeat: Infinity, delay: 3 }}
+      >
+        <Scissors size={20} />
+      </motion.div>
+
       <div className="container mx-auto px-6 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

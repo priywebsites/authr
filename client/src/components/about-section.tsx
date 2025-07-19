@@ -13,7 +13,48 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="about" className="py-20 bg-white" ref={ref}>
+    <section id="about" className="py-20 bg-white relative overflow-hidden" ref={ref}>
+      {/* Enhanced Background Floating Elements */}
+      <motion.div
+        className="absolute top-20 right-20 w-20 h-20 bg-red-100/30 rounded-full"
+        animate={{
+          y: [0, -40, 0],
+          x: [0, 25, 0],
+          rotate: [0, 180, 360],
+          scale: [1, 1.4, 1]
+        }}
+        transition={{ duration: 18, repeat: Infinity }}
+      />
+      
+      <motion.div
+        className="absolute bottom-32 left-16 w-16 h-16 bg-blue-100/25 rounded-full"
+        animate={{
+          y: [0, 35, 0],
+          rotate: [0, -180, 0],
+          opacity: [0.2, 0.6, 0.2]
+        }}
+        transition={{ duration: 14, repeat: Infinity, delay: 4 }}
+      />
+
+      <motion.div
+        className="absolute top-1/3 left-10 w-8 h-8 bg-red-200/40 rounded-full"
+        animate={{
+          y: [0, -25, 0],
+          x: [0, 15, 0],
+          scale: [0.8, 1.6, 0.8]
+        }}
+        transition={{ duration: 12, repeat: Infinity, delay: 2 }}
+      />
+
+      <motion.div
+        className="absolute bottom-1/4 right-12 w-6 h-6 bg-blue-200/35 rounded-full"
+        animate={{
+          x: [0, -30, 0],
+          y: [0, -20, 0],
+          rotate: [0, 360, 0]
+        }}
+        transition={{ duration: 10, repeat: Infinity, delay: 6 }}
+      />
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
