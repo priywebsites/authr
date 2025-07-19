@@ -162,16 +162,37 @@ export default function AboutSection() {
               transition={{ duration: 0.3 }}
               className="relative"
             >
-              <motion.img
-                src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                alt="Professional barber at work in modern barbershop"
-                className="rounded-2xl shadow-2xl w-full h-auto"
+              <motion.div
+                className="bg-gradient-to-br from-primary/10 to-red-500/10 rounded-2xl shadow-2xl w-full h-96 flex items-center justify-center backdrop-blur-sm border border-primary/20"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
                 transition={{ duration: 1, delay: 0.4 }}
-              />
+              >
+                <div className="text-center p-8">
+                  <motion.div
+                    animate={{ rotate: [0, 360] }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-primary to-red-500 rounded-full flex items-center justify-center shadow-lg"
+                  >
+                    <span className="text-4xl text-white">✂️</span>
+                  </motion.div>
+                  <h3 className="text-3xl font-bold text-gray-800 mb-4">Excellence in Every Cut</h3>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    Master craftsmanship meets modern precision
+                  </p>
+                  <motion.div 
+                    className="mt-6 flex justify-center space-x-4"
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  >
+                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                  </motion.div>
+                </div>
+              </motion.div>
               
-              {/* Floating accent elements around image */}
+              {/* Floating accent elements */}
               <motion.div
                 className="absolute -top-4 -right-4 w-8 h-8 bg-red-400/30 rounded-full"
                 animate={{ 

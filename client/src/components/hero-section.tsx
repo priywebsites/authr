@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown, Phone, Scissors, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import storefrontImage from "@assets/Screen Shot 2025-07-19 at 3.18.56 PM_1752956488275.png";
 
 export default function HeroSection() {
   const scrollToServices = () => {
@@ -19,7 +20,7 @@ export default function HeroSection() {
       id="hero"
       className="min-h-screen flex items-center justify-center relative overflow-hidden parallax bg-gradient-to-br from-primary/80 to-primary-dark/80"
       style={{
-        backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.8), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')`,
+        backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.75), rgba(30, 58, 138, 0.75)), url('${storefrontImage}')`,
       }}
     >
       {/* Enhanced Floating Elements */}

@@ -134,10 +134,11 @@ export default function ReviewsSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex justify-center w-full"
           >
             <Button
               onClick={handleBookNow}
-              className="book-now-pulse bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl border-2 border-red-400 mb-12"
+              className="book-now-pulse bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl border-2 border-red-400 mb-12 text-center"
               size="lg"
             >
               <Phone className="mr-2" size={20} />

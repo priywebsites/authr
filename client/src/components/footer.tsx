@@ -31,14 +31,16 @@ export default function Footer() {
           <p className="text-xl text-gray-300 mb-6">
             Don't wait - <span className="text-red-400 font-semibold">book your appointment today</span> and experience the difference!
           </p>
-          <Button
-            onClick={handleBookNow}
-            className="book-now-pulse bg-red-500 hover:bg-red-600 text-white px-10 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border-2 border-red-400"
-            size="lg"
-          >
-            <Calendar className="mr-3" size={24} />
-            Book Your Cut Now - Call Us!
-          </Button>
+          <div className="flex justify-center w-full">
+            <Button
+              onClick={handleBookNow}
+              className="book-now-pulse bg-red-500 hover:bg-red-600 text-white px-10 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border-2 border-red-400"
+              size="lg"
+            >
+              <Calendar className="mr-3" size={24} />
+              Book Your Cut Now - Call Us!
+            </Button>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
