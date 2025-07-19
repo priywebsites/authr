@@ -27,6 +27,9 @@
   /* Custom barbershop colors */
   --primary-light: hsl(213, 94%, 78%);
   --primary-dark: hsl(213, 94%, 28%);
+  --accent-red: hsl(0, 84%, 60%);
+  --accent-red-light: hsl(0, 84%, 70%);
+  --accent-red-dark: hsl(0, 84%, 50%);
   --gray-50: hsl(210, 40%, 98%);
   --gray-800: hsl(220, 26%, 14%);
 }
@@ -144,6 +147,34 @@
     }
   }
   
+  .floating-slow {
+    animation: floatingSlow 8s ease-in-out infinite;
+  }
+  
+  @keyframes floatingSlow {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-30px) rotate(180deg);
+    }
+  }
+  
+  .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+      transform: scale(1.05);
+    }
+  }
+  
   .hero-text {
     animation: heroFadeIn 1.2s ease-out;
   }
@@ -156,6 +187,88 @@
     100% {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+  
+  .typewriter {
+    animation: typewriter 4s steps(40) infinite;
+  }
+  
+  @keyframes typewriter {
+    0%, 50% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  .bounce-in {
+    animation: bounceIn 1s ease-out;
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .slide-up-stagger {
+    animation: slideUpStagger 0.8s ease-out both;
+  }
+  
+  @keyframes slideUpStagger {
+    0% {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .rotate-hover {
+    transition: transform 0.3s ease;
+  }
+  
+  .rotate-hover:hover {
+    transform: rotate(10deg) scale(1.1);
+  }
+  
+  .shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .book-now-pulse {
+    animation: bookNowPulse 2s infinite;
+  }
+  
+  @keyframes bookNowPulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 20px rgba(239, 68, 68, 0);
     }
   }
   

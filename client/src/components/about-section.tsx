@@ -1,11 +1,16 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Phone, Facebook } from "lucide-react";
+import { Phone, Facebook, Calendar } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const handleBookNow = () => {
+    window.location.href = "tel:+14077447328";
+  };
 
   return (
     <section id="about" className="py-20 bg-white" ref={ref}>
@@ -16,21 +21,41 @@ export default function AboutSection() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-gray-800 mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 1, delay: 0.2 }}
+            >
               Crafting Perfect
               <br />
               <span className="text-primary">Cuts Since Day One</span>
-            </h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+            </motion.h2>
+            
+            <motion.p 
+              className="text-lg text-gray-600 mb-8 leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
               At Authentic Cuts Barbershop, we believe every cut tells a story. Our master barbers combine traditional techniques with modern precision to deliver cuts that enhance your natural style and confidence.
-            </p>
+            </motion.p>
 
             {/* Contact Information */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+            <div className="space-y-4 mb-8">
+              <motion.div 
+                className="flex items-center space-x-4"
+                initial={{ opacity: 0, x: -30 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                <motion.div 
+                  className="w-12 h-12 bg-primary rounded-full flex items-center justify-center rotate-hover"
+                  whileHover={{ scale: 1.1, rotate: 10 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                   <Phone className="text-white" size={20} />
-                </div>
+                </motion.div>
                 <div>
                   <p className="font-semibold text-gray-800">Call us today</p>
                   <a
@@ -40,12 +65,21 @@ export default function AboutSection() {
                     +1 (407) 744-7328
                   </a>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+              <motion.div 
+                className="flex items-center space-x-4"
+                initial={{ opacity: 0, x: -30 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <motion.div 
+                  className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center rotate-hover"
+                  whileHover={{ scale: 1.1, rotate: -10 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                   <Facebook className="text-white" size={20} />
-                </div>
+                </motion.div>
                 <div>
                   <p className="font-semibold text-gray-800">Follow us</p>
                   <a
@@ -57,8 +91,24 @@ export default function AboutSection() {
                     @authenticcutsbarbers
                   </a>
                 </div>
-              </div>
+              </motion.div>
             </div>
+
+            {/* Book Now Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 1 }}
+            >
+              <Button
+                onClick={handleBookNow}
+                className="book-now-pulse bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl border-2 border-red-400"
+                size="lg"
+              >
+                <Calendar className="mr-2" size={20} />
+                Book Your Appointment Now!
+              </Button>
+            </motion.div>
           </motion.div>
 
           <motion.div
@@ -66,11 +116,39 @@ export default function AboutSection() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-              alt="Professional barber at work in modern barbershop"
-              className="rounded-2xl shadow-2xl w-full h-auto"
-            />
+            <motion.div
+              whileHover={{ scale: 1.02, rotate: 1 }}
+              transition={{ duration: 0.3 }}
+              className="relative"
+            >
+              <motion.img
+                src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                alt="Professional barber at work in modern barbershop"
+                className="rounded-2xl shadow-2xl w-full h-auto"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                transition={{ duration: 1, delay: 0.4 }}
+              />
+              
+              {/* Floating accent elements around image */}
+              <motion.div
+                className="absolute -top-4 -right-4 w-8 h-8 bg-red-400/30 rounded-full"
+                animate={{ 
+                  y: [0, -10, 0],
+                  scale: [1, 1.2, 1]
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              
+              <motion.div
+                className="absolute -bottom-4 -left-4 w-6 h-6 bg-blue-400/40 rounded-full"
+                animate={{ 
+                  y: [0, 10, 0],
+                  rotate: [0, 180, 360]
+                }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              />
+            </motion.div>
           </motion.div>
         </div>
       </div>
