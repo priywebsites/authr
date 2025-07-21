@@ -1,5 +1,5 @@
-# Use Node.js 18 Alpine
-FROM node:18-alpine
+# Use Node.js 20 runtime
+FROM node:20-alpine
 
 # Set working directory
 WORKDIR /app
@@ -10,17 +10,16 @@ COPY package*.json ./
 # Install dependencies
 RUN npm ci --only=production
 
-# Copy application files
-COPY . .
-
-# Build the application
-RUN npm run build
+# Copy built application
+COPY dist/ ./dist/
+COPY attached_assets/ ./attached_assets/ 2>/dev/null || true
 
 # Expose port
 EXPOSE 5000
 
-# Set production environment
-ENV NODE_ENV=production
+# Add health check for autoscaling
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:5000/health || exit 1
 
-# Start the application
-CMD ["npm", "start"]
+# Start the server
+CMD ["node", "dist/index.js"]
