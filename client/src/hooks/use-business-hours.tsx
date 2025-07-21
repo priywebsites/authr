@@ -34,9 +34,34 @@ export function useBusinessHours() {
       const minute = now.getMinutes();
       const currentTime = hour * 60 + minute; // Convert to minutes for easier comparison
 
-      const todaySchedule = schedule[day];
+      // Parse current location hours to determine status
+      const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'] as const;
+      const todayKey = dayNames[day] as keyof typeof currentLocation.hours;
+      const todayHours = currentLocation.hours[todayKey];
+      
+      if (todayHours === 'Closed') {
+        setCurrentStatus({
+          isOpen: false,
+          statusText: "Currently Closed",
+        });
+        return;
+      }
 
-      if (currentTime >= todaySchedule.open && currentTime < todaySchedule.close) {
+      // Parse hours like "9:00 AM - 6:00 PM"
+      const [openTime, closeTime] = todayHours.split(' - ');
+      const parseTime = (timeStr: string) => {
+        const [time, period] = timeStr.split(' ');
+        const [hours, minutes] = time.split(':').map(Number);
+        let hour24 = hours;
+        if (period === 'PM' && hours !== 12) hour24 += 12;
+        if (period === 'AM' && hours === 12) hour24 = 0;
+        return hour24 * 60 + minutes;
+      };
+
+      const openMinutes = parseTime(openTime);
+      const closeMinutes = parseTime(closeTime);
+
+      if (currentTime >= openMinutes && currentTime < closeMinutes) {
         setCurrentStatus({
           isOpen: true,
           statusText: "Currently Open",

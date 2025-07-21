@@ -1,8 +1,10 @@
 import { Phone, Facebook, MapPin, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "@/contexts/location-context";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { currentLocation } = useLocation();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -12,7 +14,7 @@ export default function Footer() {
   };
 
   const handleBookNow = () => {
-    window.location.href = "tel:+14077447328";
+    window.location.href = `tel:${currentLocation.phone}`;
   };
 
   return (
@@ -45,11 +47,15 @@ export default function Footer() {
 
         <div className="grid md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
-              Authentic Cuts
-            </h3>
+            <div className="flex items-center mb-4">
+              <img 
+                src="/attached_assets/image0 (3)_1753130670848.png" 
+                alt="Authentic Cuts Barbershop" 
+                className="h-16 w-auto mr-4"
+              />
+            </div>
             <p className="text-gray-300 leading-relaxed mb-4">
-              Premium barbering experience in Kissimmee, where traditional craftsmanship meets modern style.
+              Premium barbering experience in {currentLocation.address.includes('St Cloud') ? 'St Cloud' : 'Kissimmee'}, where traditional craftsmanship meets modern style.
             </p>
             <div className="flex space-x-4">
               <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
@@ -66,10 +72,10 @@ export default function Footer() {
                   <Phone size={16} />
                 </div>
                 <a
-                  href="tel:+14077447328"
+                  href={`tel:${currentLocation.phone}`}
                   className="hover:text-red-400 transition-colors duration-300 font-medium"
                 >
-                  +1 (407) 744-7328
+                  {currentLocation.phone}
                 </a>
               </div>
               <div className="flex items-center gap-3 group">
@@ -89,7 +95,7 @@ export default function Footer() {
                 <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center group-hover:bg-red-500 transition-colors duration-300">
                   <MapPin size={16} />
                 </div>
-                <span className="text-gray-300 font-medium">Kissimmee, FL</span>
+                <span className="text-gray-300 font-medium">{currentLocation.address}</span>
               </div>
             </div>
           </div>

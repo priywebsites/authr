@@ -17,44 +17,72 @@ export default function ServicesSection() {
   const services = [
     {
       icon: Scissors,
-      title: "Haircuts",
-      description: "Precision cuts tailored to your face shape and personal style, from classic to contemporary.",
+      title: "Original Cut",
+      price: "$30",
       color: "bg-primary",
       accent: "bg-red-100",
     },
     {
-      icon: User,
-      title: "Beard Trims",
-      description: "Expert beard sculpting and grooming to complement your facial features perfectly.",
+      icon: Baby,
+      title: "True Kid Cut (Under 12)",
+      price: "$25",
       color: "bg-red-500",
       accent: "bg-blue-100",
     },
     {
       icon: Sparkles,
-      title: "Straight Razor Shaves",
-      description: "Traditional hot towel shaves with straight razor precision for the ultimate grooming experience.",
+      title: "Real Shave + Original Cut",
+      price: "$45",
       color: "bg-blue-600",
       accent: "bg-red-100",
     },
     {
       icon: Layers,
-      title: "Fades",
-      description: "Seamless fade cuts from subtle to dramatic, executed with meticulous attention to detail.",
+      title: "Genuine Hot Towel Shave + Original Cut",
+      price: "$55",
+      color: "bg-primary",
+      accent: "bg-red-100",
+    },
+    {
+      icon: User,
+      title: "Senior Citizens (60+)",
+      price: "$20",
+      color: "bg-red-500",
+      accent: "bg-blue-100",
+    },
+    {
+      icon: PenTool,
+      title: "Shape Up and Shave",
+      price: "$25",
+      color: "bg-blue-600",
+      accent: "bg-red-100",
+    },
+    {
+      icon: Sparkles,
+      title: "Shave",
+      price: "$15",
       color: "bg-primary",
       accent: "bg-red-100",
     },
     {
       icon: PenTool,
-      title: "Line-Ups",
-      description: "Crisp, clean edge-ups and hairline refinements for that fresh, sharp appearance.",
+      title: "Shape Up",
+      price: "$12",
       color: "bg-red-500",
       accent: "bg-blue-100",
     },
     {
-      icon: Baby,
-      title: "Kids' Cuts",
-      description: "Patient, fun, and stylish cuts for our younger clients in a comfortable environment.",
+      icon: User,
+      title: "Eyebrows",
+      price: "$5",
       color: "bg-blue-600",
+      accent: "bg-red-100",
+    },
+    {
+      icon: Sparkles,
+      title: "Hot Towel Shave",
+      price: "$25",
+      color: "bg-primary",
       accent: "bg-red-100",
     },
   ];
@@ -160,12 +188,12 @@ export default function ServicesSection() {
                 </motion.h3>
                 
                 <motion.p 
-                  className="text-gray-600 leading-relaxed relative z-10"
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                  className="text-3xl font-bold text-primary relative z-10"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.6, delay: 0.3 * index }}
                 >
-                  {service.description}
+                  {service.price}
                 </motion.p>
 
                 {/* Floating particles */}

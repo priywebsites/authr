@@ -46,18 +46,13 @@ export default function Navigation() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <div className="font-bold text-2xl text-primary">Authentic Cuts</div>
+            <img 
+              src="/attached_assets/image0 (3)_1753130670848.png" 
+              alt="Authentic Cuts Barbershop" 
+              className="h-12 w-auto"
+            />
             
-            {/* Location Indicator */}
-            <motion.div 
-              className="flex items-center space-x-2 bg-primary/10 px-3 py-1 rounded-full"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <MapPin size={14} className="text-primary" />
-              <span className="text-sm text-primary font-medium">You are here</span>
-            </motion.div>
+
           </div>
           
           <div className="flex items-center space-x-6">
