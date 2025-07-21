@@ -77,7 +77,7 @@ export default function LocationSection() {
           <div className="bg-white p-6 rounded-2xl shadow-lg">
             <div className="rounded-xl overflow-hidden">
               <iframe
-                src={currentLocation.embedMapUrl}
+                src={currentLocation.googleMapsLink}
                 width="100%"
                 height="400"
                 style={{ border: 0 }}

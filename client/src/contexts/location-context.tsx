@@ -24,7 +24,23 @@ const locations: LocationData[] = [
     name: 'Authentic Cuts Barbershop',
     address: '2417 13th St, St Cloud, FL 34769, United States',
     phone: '+14077447328',
-    googleMapsLink: 'https://www.google.com/maps/place/Authentic+Cuts+Barbershop/@28.247,-81.311,17z',
+    googleMapsLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.9234567890!2d-81.311!3d28.247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDE0JzQ5LjIiTiA4McKwMTgnMzkuNiJX!5e0!3m2!1sen!2sus!4v1234567890123',
+    hours: {
+      monday: '9:00 AM - 6:00 PM',
+      tuesday: '9:00 AM - 6:00 PM',
+      wednesday: '9:00 AM - 6:00 PM',
+      thursday: '9:00 AM - 6:00 PM',
+      friday: '8:00 AM - 6:00 PM',
+      saturday: '8:00 AM - 4:00 PM',
+      sunday: '9:00 AM - 12:00 PM'
+    }
+  },
+  {
+    id: 'stcloud',
+    name: 'Authentic Cuts Barbershop II',
+    address: '3445 13th St, St Cloud, FL 34769, United States',
+    phone: '+14075936622',
+    googleMapsLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.9234567890!2d-81.3117598!3d28.2470583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88dd8fcb543c1aa7:0xabe4cc5952655871!8m2!3d28.2470536!4d-81.3091849!5e0!3m2!1sen!2sus!4v1234567890124',
     hours: {
       monday: '9:00 AM - 6:00 PM',
       tuesday: '9:00 AM - 6:00 PM',
@@ -34,23 +50,6 @@ const locations: LocationData[] = [
       saturday: '8:00 AM - 4:00 PM',
       sunday: 'Closed'
     }
-  },
-  {
-    id: 'stcloud',
-    name: 'Authentic Cuts Barbershop II',
-    address: '3445 13th St, St Cloud, FL 34769, United States',
-    phone: '+14075936622',
-    googleMapsLink: 'https://www.google.com/maps/place/Authentic+Cuts+Barbershop+II/@28.2470583,-81.3117598,17z/data=!3m1!4b1!4m6!3m5!1s0x88dd8fcb543c1aa7:0xabe4cc5952655871!8m2!3d28.2470536!4d-81.3091849!16s%2Fg%2F11r9qjnmxh?entry=ttu',
-    hours: {
-      monday: '9:00 AM - 6:00 PM',
-      tuesday: '9:00 AM - 6:00 PM',
-      wednesday: '9:00 AM - 6:00 PM',
-      thursday: '9:00 AM - 6:00 PM',
-      friday: '9:00 AM - 6:00 PM',
-      saturday: '8:00 AM - 4:00 PM',
-      sunday: 'Closed'
-    },
-    logoPath: '@assets/image0 (2)_1753129890740.png'
   }
 ];
 

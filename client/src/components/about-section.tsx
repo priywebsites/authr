@@ -169,11 +169,14 @@ export default function AboutSection() {
                   <motion.div
                     animate={{ rotate: [0, 360] }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-primary to-red-500 rounded-full flex items-center justify-center shadow-lg"
+                    className="w-24 h-24 mx-auto mb-6 flex items-center justify-center"
                   >
-                    <span className="text-4xl text-white">✂️</span>
+                    <img 
+                      src="/attached_assets/image0 (3)_1753130670848.png" 
+                      alt="Authentic Cuts Barbershop" 
+                      className="w-24 h-24 object-contain"
+                    />
                   </motion.div>
-                  <h3 className="text-3xl font-bold text-gray-800 mb-4">Excellence in Every Cut</h3>
                   <p className="text-gray-600 text-lg leading-relaxed">
                     Master craftsmanship meets modern precision
                   </p>

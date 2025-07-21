@@ -47,13 +47,9 @@ export default function Footer() {
 
         <div className="grid md:grid-cols-3 gap-8">
           <div>
-            <div className="flex items-center mb-4">
-              <img 
-                src="/attached_assets/image0 (3)_1753130670848.png" 
-                alt="Authentic Cuts Barbershop" 
-                className="h-16 w-auto mr-4"
-              />
-            </div>
+            <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
+              Authentic Cuts
+            </h3>
             <p className="text-gray-300 leading-relaxed mb-4">
               Premium barbering experience in {currentLocation.address.includes('St Cloud') ? 'St Cloud' : 'Kissimmee'}, where traditional craftsmanship meets modern style.
             </p>

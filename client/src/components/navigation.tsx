@@ -46,11 +46,7 @@ export default function Navigation() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <img 
-              src="/attached_assets/image0 (3)_1753130670848.png" 
-              alt="Authentic Cuts Barbershop" 
-              className="h-12 w-auto"
-            />
+            <div className="font-bold text-2xl text-primary">Authentic Cuts</div>
             
 
           </div>
