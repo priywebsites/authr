@@ -169,12 +169,16 @@ export default function AboutSection() {
                   <motion.div
                     animate={{ rotate: [0, 360] }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="w-24 h-24 mx-auto mb-6 flex items-center justify-center"
+                    className="w-32 h-32 mx-auto mb-6 flex items-center justify-center"
                   >
                     <img 
-                      src="/attached_assets/image0 (3)_1753130670848.png" 
+                      src="/logo.png" 
                       alt="Authentic Cuts Barbershop" 
-                      className="w-24 h-24 object-contain"
+                      className="w-32 h-32 object-contain"
+                      onError={(e) => {
+                        console.error('Logo image failed to load:', e);
+                        e.currentTarget.style.display = 'none';
+                      }}
                     />
                   </motion.div>
                   <p className="text-gray-600 text-lg leading-relaxed">
