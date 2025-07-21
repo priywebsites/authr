@@ -1,0 +1,14 @@
+run = "npm run dev"
+
+[deployment]
+build = ["sh", "-c", "npm run build 2>/dev/null || (pkill -f vite; sleep 2; npm run build)"]
+run = ["sh", "-c", "npm start"]
+deploymentTarget = "autoscale"
+ignorePorts = false
+
+[env]
+NODE_ENV = "production"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
