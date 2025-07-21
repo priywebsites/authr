@@ -3,13 +3,15 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Scissors, User, Sparkles, Layers, PenTool, Baby, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "@/contexts/location-context";
 
 export default function ServicesSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { currentLocation } = useLocation();
 
   const handleBookNow = () => {
-    window.location.href = "tel:+14077447328";
+    window.location.href = `tel:${currentLocation.phone}`;
   };
 
   const services = [

@@ -1,15 +1,17 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Phone, Facebook, Calendar } from "lucide-react";
+import { Phone, Facebook, Calendar, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "@/contexts/location-context";
 
 export default function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { currentLocation } = useLocation();
 
   const handleBookNow = () => {
-    window.location.href = "tel:+14077447328";
+    window.location.href = `tel:${currentLocation.phone}`;
   };
 
   return (
@@ -100,10 +102,10 @@ export default function AboutSection() {
                 <div>
                   <p className="font-semibold text-gray-800">Call us today</p>
                   <a
-                    href="tel:+14077447328"
+                    href={`tel:${currentLocation.phone}`}
                     className="text-primary hover:text-primary-dark transition-colors"
                   >
-                    +1 (407) 744-7328
+                    {currentLocation.phone}
                   </a>
                 </div>
               </motion.div>
@@ -115,22 +117,17 @@ export default function AboutSection() {
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <motion.div 
-                  className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center rotate-hover"
+                  className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center rotate-hover"
                   whileHover={{ scale: 1.1, rotate: -10 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Facebook className="text-white" size={20} />
+                  <MapPin className="text-white" size={20} />
                 </motion.div>
                 <div>
-                  <p className="font-semibold text-gray-800">Follow us</p>
-                  <a
-                    href="https://www.facebook.com/authenticcutsbarbers/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-primary-dark transition-colors"
-                  >
-                    @authenticcutsbarbers
-                  </a>
+                  <p className="font-semibold text-gray-800">Visit us</p>
+                  <p className="text-primary hover:text-primary-dark transition-colors">
+                    {currentLocation.address}
+                  </p>
                 </div>
               </motion.div>
             </div>

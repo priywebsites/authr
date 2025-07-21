@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "@/contexts/location-context";
 
 export interface BusinessHours {
   [key: number]: {
@@ -9,6 +10,7 @@ export interface BusinessHours {
 }
 
 export function useBusinessHours() {
+  const { currentLocation } = useLocation();
   const [currentStatus, setCurrentStatus] = useState<{
     isOpen: boolean;
     statusText: string;
@@ -52,16 +54,16 @@ export function useBusinessHours() {
     const interval = setInterval(updateStatus, 60000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentLocation]);
 
   const getScheduleDisplay = () => [
-    { day: "Saturday", hours: "8:00 AM - 4:00 PM" },
-    { day: "Sunday", hours: "9:00 AM - 12:00 PM" },
-    { day: "Monday", hours: "9:00 AM - 6:00 PM" },
-    { day: "Tuesday", hours: "9:00 AM - 6:00 PM" },
-    { day: "Wednesday", hours: "9:00 AM - 6:00 PM" },
-    { day: "Thursday", hours: "9:00 AM - 6:00 PM" },
-    { day: "Friday", hours: "8:00 AM - 6:00 PM" },
+    { day: "Saturday", hours: currentLocation.hours.saturday },
+    { day: "Sunday", hours: currentLocation.hours.sunday },
+    { day: "Monday", hours: currentLocation.hours.monday },
+    { day: "Tuesday", hours: currentLocation.hours.tuesday },
+    { day: "Wednesday", hours: currentLocation.hours.wednesday },
+    { day: "Thursday", hours: currentLocation.hours.thursday },
+    { day: "Friday", hours: currentLocation.hours.friday },
   ];
 
   return {

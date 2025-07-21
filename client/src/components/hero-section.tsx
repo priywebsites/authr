@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { ChevronDown, Phone, Scissors, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "@/contexts/location-context";
 import storefrontImage from "@assets/Screen Shot 2025-07-19 at 3.18.56 PM_1752956488275.png";
 
 export default function HeroSection() {
+  const { currentLocation } = useLocation();
+  
   const scrollToServices = () => {
     const element = document.getElementById("services");
     if (element) {
@@ -12,7 +15,7 @@ export default function HeroSection() {
   };
 
   const handleBookNow = () => {
-    window.location.href = "tel:+14077447328";
+    window.location.href = `tel:${currentLocation.phone}`;
   };
 
   return (
@@ -172,22 +175,45 @@ export default function HeroSection() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.8, ease: "backOut" }}
           >
-            <motion.span
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.2, delay: 0.3 }}
-            >
-              Authentic
-            </motion.span>
-            <br />
-            <motion.span 
-              className="text-blue-300"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.2, delay: 0.6 }}
-            >
-              Cuts
-            </motion.span>
+{currentLocation.name.includes('II') ? (
+              <>
+                <motion.span
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1.2, delay: 0.3 }}
+                >
+                  Authentic Cuts
+                </motion.span>
+                <br />
+                <motion.span 
+                  className="text-blue-300"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1.2, delay: 0.6 }}
+                >
+                  II
+                </motion.span>
+              </>
+            ) : (
+              <>
+                <motion.span
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1.2, delay: 0.3 }}
+                >
+                  Authentic
+                </motion.span>
+                <br />
+                <motion.span 
+                  className="text-blue-300"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1.2, delay: 0.6 }}
+                >
+                  Cuts
+                </motion.span>
+              </>
+            )}
           </motion.h1>
           
           <motion.p 
@@ -196,7 +222,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.9 }}
           >
-            Premium barbering experience in the heart of Kissimmee.
+Premium barbering experience in the heart of {currentLocation.address.includes('St Cloud') ? 'St Cloud' : 'Kissimmee'}.
             <br />
             <span className="text-red-300">Where tradition meets modern style.</span>
           </motion.p>

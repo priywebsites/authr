@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MapPin, Building2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useLocation } from "@/contexts/location-context";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showLocationMenu, setShowLocationMenu] = useState(false);
   const isMobile = useIsMobile();
+  const { currentLocation, locations, switchLocation } = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,30 +45,92 @@ export default function Navigation() {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="font-bold text-2xl text-primary">Authentic Cuts</div>
-          
-          {!isMobile && (
-            <div className="hidden md:flex space-x-8">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-gray-600 hover:text-primary transition-colors duration-300"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          )}
-          
-          {isMobile && (
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-gray-600"
+          <div className="flex items-center space-x-4">
+            <div className="font-bold text-2xl text-primary">Authentic Cuts</div>
+            
+            {/* Location Indicator */}
+            <motion.div 
+              className="flex items-center space-x-2 bg-primary/10 px-3 py-1 rounded-full"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          )}
+              <MapPin size={14} className="text-primary" />
+              <span className="text-sm text-primary font-medium">You are here</span>
+            </motion.div>
+          </div>
+          
+          <div className="flex items-center space-x-6">
+            {/* Location Switcher */}
+            <div className="relative">
+              <motion.button
+                onClick={() => setShowLocationMenu(!showLocationMenu)}
+                className="flex items-center space-x-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-all duration-300 border border-primary/20"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Building2 size={16} className="text-primary" />
+                <span className="text-sm font-medium text-gray-700">
+                  {currentLocation.name.includes('II') ? 'Location II' : 'Location I'}
+                </span>
+              </motion.button>
+              
+              <AnimatePresence>
+                {showLocationMenu && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full right-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 z-50 overflow-hidden"
+                  >
+                    {locations.map((location) => (
+                      <motion.button
+                        key={location.id}
+                        onClick={() => {
+                          switchLocation(location.id);
+                          setShowLocationMenu(false);
+                        }}
+                        className={`w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors ${
+                          currentLocation.id === location.id ? 'bg-primary/5 border-l-4 border-primary' : ''
+                        }`}
+                        whileHover={{ backgroundColor: 'rgba(59, 130, 246, 0.05)' }}
+                      >
+                        <div className="font-medium text-gray-800">{location.name}</div>
+                        <div className="text-sm text-gray-500">{location.address}</div>
+                        <div className="text-sm text-primary">{location.phone}</div>
+                      </motion.button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            
+            {!isMobile && (
+              <div className="hidden md:flex space-x-8">
+                {navItems.map((item) => (
+                  <motion.button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-gray-600 hover:text-primary transition-colors duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {item.label}
+                  </motion.button>
+                ))}
+              </div>
+            )}
+            
+            {isMobile && (
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden text-gray-600"
+              >
+                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            )}
+          </div>
         </div>
         
         {/* Mobile Menu */}

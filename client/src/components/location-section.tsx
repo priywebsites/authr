@@ -3,12 +3,12 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "@/contexts/location-context";
 
 export default function LocationSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const googleMapsUrl = "https://www.google.com/maps/place/Authentic+Cuts+Barbershop/@28.2122368,-81.330485,14z/data=!4m10!1m2!2m1!1sauthentic+cuts+barbershop+kissisime!3m6!1s0x88dd8e2bb2de1d25:0x3c5aedf82807a683!8m2!3d28.2122368!4d-81.2923762!15sCiNhdXRoZW50aWMgY3V0cyBiYXJiZXJzaG9wIGtpc3NpbW1lZZIBC2JhcmJlcl9zaG9wqgFWCggvbS8wcnB4cRABMh8QASIbRGLcdPFSPe6efIdwuIUKCA0HO4Enpy0gxFt5MicQAiIjYXV0aGVudGljIGN1dHMgYmFyYmVyc2hvcCBraXNzaW1tZWXgAQA!16s%2Fg%2F11b6_dgy2n?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D";
+  const { currentLocation } = useLocation();
 
   return (
     <section id="location" className="py-20 bg-gray-50 relative overflow-hidden" ref={ref}>
@@ -64,7 +64,7 @@ export default function LocationSection() {
             Find Us <span className="text-primary">Here</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Visit us at our convenient Kissimmee location. We're easy to find and parking is always available.
+            Visit us at our convenient {currentLocation.name.includes('II') ? 'St Cloud' : 'St Cloud'} location. We're easy to find and parking is always available.
           </p>
         </motion.div>
 
@@ -77,7 +77,7 @@ export default function LocationSection() {
           <div className="bg-white p-6 rounded-2xl shadow-lg">
             <div className="rounded-xl overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14141.234567890123!2d-81.330485!3d28.2122368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88dd8e2bb2de1d25%3A0x3c5aedf82807a683!2sAuthentic%20Cuts%20Barbershop!5e0!3m2!1sen!2sus!4v1642021234567!5m2!1sen!2sus"
+                src={currentLocation.embedMapUrl}
                 width="100%"
                 height="400"
                 style={{ border: 0 }}
@@ -85,7 +85,7 @@ export default function LocationSection() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full"
-                title="Authentic Cuts Barbershop Location"
+                title={`${currentLocation.name} Location`}
               />
             </div>
 
@@ -96,9 +96,9 @@ export default function LocationSection() {
                     <MapPin size={24} className="text-primary" />
                     Address
                   </h3>
-                  <p className="text-gray-600">Kissimmee, FL</p>
+                  <p className="text-gray-600">{currentLocation.address}</p>
                   <p className="text-sm text-gray-500 mt-2">
-                    Exact address available via phone or social media
+                    {currentLocation.name}
                   </p>
                 </div>
                 <div>
@@ -108,7 +108,7 @@ export default function LocationSection() {
                     className="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-full font-semibold transition-all duration-300"
                   >
                     <a
-                      href={googleMapsUrl}
+                      href={currentLocation.googleMapsLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2"

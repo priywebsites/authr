@@ -2,12 +2,14 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { useBusinessHours } from "@/hooks/use-business-hours";
+import { useLocation } from "@/contexts/location-context";
 import { Clock } from "lucide-react";
 
 export default function HoursSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { currentStatus, schedule } = useBusinessHours();
+  const { currentLocation } = useLocation();
 
   return (
     <section className="py-20 bg-gray-50 relative overflow-hidden" ref={ref}>
