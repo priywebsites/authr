@@ -16,9 +16,4 @@ export default defineConfig({
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
   },
-  mode: 'production',
-  // Disable all server functionality during build
-  server: {
-    host: false,
-  },
 });
