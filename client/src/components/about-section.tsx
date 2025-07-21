@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { Phone, Facebook, Calendar, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "@/contexts/location-context";
-import logoImage from "../../attached_assets/image0 (3)_1753130670848.png";
 
 export default function AboutSection() {
   const ref = useRef(null);
@@ -170,12 +169,12 @@ export default function AboutSection() {
                   <motion.div
                     animate={{ rotate: [0, 360] }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="w-32 h-32 mx-auto mb-6 flex items-center justify-center"
+                    className="w-24 h-24 mx-auto mb-6 flex items-center justify-center"
                   >
                     <img 
-                      src={logoImage} 
+                      src="/attached_assets/image0 (3)_1753130670848.png" 
                       alt="Authentic Cuts Barbershop" 
-                      className="w-32 h-32 object-contain"
+                      className="w-24 h-24 object-contain"
                     />
                   </motion.div>
                   <p className="text-gray-600 text-lg leading-relaxed">
