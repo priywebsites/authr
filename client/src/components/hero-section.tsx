@@ -179,7 +179,7 @@ export default function HeroSection() {
             className="mb-12"
           >
             <motion.img 
-              src="/attached_assets/image0 (10)_1753145187894.jpeg" 
+              src="/logo.png" 
               alt="" 
               className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain mx-auto filter drop-shadow-2xl" 
               animate={{ 

@@ -49,7 +49,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-4 mb-4">
               <img 
-                src="/attached_assets/image0 (10)_1753145187894.jpeg" 
+                src="/logo.png" 
                 alt="" 
                 className="w-12 h-12 object-contain transition-transform duration-300 hover:scale-110" 
               />
