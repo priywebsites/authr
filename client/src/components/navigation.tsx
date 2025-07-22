@@ -49,7 +49,7 @@ export default function Navigation() {
           <div className="flex items-center space-x-4">
             <img 
               src="/attached_assets/image0 (10)_1753145187894.jpeg" 
-              alt="" 
+              alt="Authentic Cuts Logo" 
               className="w-12 h-12 object-contain transition-transform duration-300 hover:scale-110" 
             />
             <div className="font-bold text-2xl text-primary">Authentic Cuts</div>
