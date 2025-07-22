@@ -199,14 +199,16 @@ export default function ServicesSection() {
                   {service.title}
                 </motion.h3>
                 
-                <motion.p 
-                  className="text-3xl font-bold text-primary relative z-10"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.6, delay: 0.3 * index }}
-                >
-                  {showPrices ? service.price : 'View Price Above'}
-                </motion.p>
+                {showPrices && (
+                  <motion.p 
+                    className="text-3xl font-bold text-primary relative z-10"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.3 * index }}
+                  >
+                    {service.price}
+                  </motion.p>
+                )}
 
                 {/* Floating particles */}
                 <motion.div
