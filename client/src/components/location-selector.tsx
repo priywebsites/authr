@@ -187,9 +187,9 @@ export default function LocationSelector() {
                         <p className="font-semibold text-gray-800">Hours</p>
                         <div className="text-gray-600 space-y-1">
                           {Object.entries(location.hours).map(([day, hours]) => (
-                            <div key={day} className="flex justify-between text-sm">
-                              <span className="capitalize font-medium">{day}:</span>
-                              <span>{hours}</span>
+                            <div key={day} className="flex justify-between text-sm min-w-0">
+                              <span className="capitalize font-medium w-20 flex-shrink-0">{day}:</span>
+                              <span className="text-right flex-1">{hours}</span>
                             </div>
                           ))}
                         </div>
