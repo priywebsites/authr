@@ -3,6 +3,7 @@ import { ChevronDown, Phone, Scissors, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "@/contexts/location-context";
 import storefrontImage from "@assets/Screen Shot 2025-07-19 at 3.18.56 PM_1752956488275.png";
+// import logoImage from "@assets/image0 (10)_1753145187894.jpeg";
 
 export default function HeroSection() {
   const { currentLocation } = useLocation();
@@ -169,6 +170,20 @@ export default function HeroSection() {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="hero-text"
         >
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, ease: "backOut", delay: 0.2 }}
+            className="mb-8"
+          >
+            <img 
+              src="/attached_assets/image0 (10)_1753145187894.jpeg" 
+              alt="Authentic Cuts Logo" 
+              className="w-32 h-32 md:w-40 md:h-40 object-contain mx-auto filter drop-shadow-2xl" 
+            />
+          </motion.div>
+
           <motion.h1 
             className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
             initial={{ opacity: 0, scale: 0.8 }}

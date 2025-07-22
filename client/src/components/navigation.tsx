@@ -3,6 +3,8 @@ import { Menu, X, Building2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useLocation } from "@/contexts/location-context";
+// Using public URL for logo until asset import is fixed
+// import logoImage from "@assets/image0 (10)_1753145187894.jpeg";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,8 +49,8 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <img 
-              src="/logo.png" 
-              alt="" 
+              src="/attached_assets/image0 (10)_1753145187894.jpeg" 
+              alt="Authentic Cuts Logo" 
               className="w-12 h-12 object-contain" 
             />
             <div className="font-bold text-2xl text-primary">Authentic Cuts</div>
