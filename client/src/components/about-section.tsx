@@ -168,7 +168,7 @@ export default function AboutSection() {
                 <div className="text-center p-8">
                   <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center">
                     <motion.img 
-                      src="/attached_assets/image0 (10)_1753145187894.jpeg" 
+                      src="/logo.png" 
                       alt="" 
                       className="w-32 h-32 object-contain transition-transform duration-500"
                       whileHover={{ scale: 1.1, rotate: 5 }}
