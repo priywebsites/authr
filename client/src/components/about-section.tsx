@@ -168,8 +168,8 @@ export default function AboutSection() {
                 <div className="text-center p-8">
                   <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center">
                     <motion.img 
-                      src="/logo.png" 
-                      alt="" 
+                      src="/new-logo.png" 
+                      alt="Authentic Cuts Barbershop Logo" 
                       className="w-32 h-32 object-contain transition-transform duration-500"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       animate={{ 
