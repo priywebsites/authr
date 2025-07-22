@@ -49,8 +49,8 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-4 mb-4">
               <img 
-                src="/new-logo.png" 
-                alt="Authentic Cuts Barbershop Logo" 
+                src="/logo.png" 
+                alt="" 
                 className="w-12 h-12 object-contain transition-transform duration-300 hover:scale-110" 
               />
               <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
