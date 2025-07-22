@@ -1,5 +1,6 @@
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
+import LocationSelector from "@/components/location-selector";
 import AboutSection from "@/components/about-section";
 import HoursSection from "@/components/hours-section";
 import ServicesSection from "@/components/services-section";
@@ -13,6 +14,7 @@ export default function Home() {
     <div className="min-h-screen">
       <Navigation />
       <HeroSection />
+      <LocationSelector />
       <AboutSection />
       <HoursSection />
       <ServicesSection />

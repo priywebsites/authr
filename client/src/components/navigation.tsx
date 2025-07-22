@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Building2 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useLocation } from "@/contexts/location-context";
 // Using public URL for logo until asset import is fixed
@@ -9,9 +9,8 @@ import { useLocation } from "@/contexts/location-context";
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showLocationMenu, setShowLocationMenu] = useState(false);
   const isMobile = useIsMobile();
-  const { currentLocation, locations, switchLocation } = useLocation();
+  const { currentLocation } = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +48,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <img 
-              src="/logo.png" 
+              src="/attached_assets/image0 (10)_1753145187894.jpeg" 
               alt="" 
               className="w-12 h-12 object-contain transition-transform duration-300 hover:scale-110" 
             />
@@ -57,49 +56,12 @@ export default function Navigation() {
           </div>
           
           <div className="flex items-center space-x-6">
-            {/* Location Switcher */}
-            <div className="relative">
-              <motion.button
-                onClick={() => setShowLocationMenu(!showLocationMenu)}
-                className="flex items-center space-x-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-all duration-300 border border-primary/20"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Building2 size={16} className="text-primary" />
-                <span className="text-sm font-medium text-gray-700">
-                  {currentLocation.name.includes('II') ? 'Location II' : 'Location I'}
-                </span>
-              </motion.button>
-              
-              <AnimatePresence>
-                {showLocationMenu && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full right-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 z-50 overflow-hidden"
-                  >
-                    {locations.map((location) => (
-                      <motion.button
-                        key={location.id}
-                        onClick={() => {
-                          switchLocation(location.id);
-                          setShowLocationMenu(false);
-                        }}
-                        className={`w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors ${
-                          currentLocation.id === location.id ? 'bg-primary/5 border-l-4 border-primary' : ''
-                        }`}
-                        whileHover={{ backgroundColor: 'rgba(59, 130, 246, 0.05)' }}
-                      >
-                        <div className="font-medium text-gray-800">{location.name}</div>
-                        <div className="text-sm text-gray-500">{location.address}</div>
-                        <div className="text-sm text-primary">{location.phone}</div>
-                      </motion.button>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+            {/* Current Location Display */}
+            <div className="flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-lg border border-primary/20">
+              <Building2 size={16} className="text-primary" />
+              <span className="text-sm font-medium text-gray-700">
+                {currentLocation.name.includes('II') ? 'Location II' : 'Location I'}
+              </span>
             </div>
             
             {!isMobile && (
