@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, MapPin, Building2 } from "lucide-react";
+import { Menu, X, Building2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useLocation } from "@/contexts/location-context";
@@ -46,9 +46,12 @@ export default function Navigation() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
+            <img 
+              src="/logo.png" 
+              alt="" 
+              className="w-12 h-12 object-contain" 
+            />
             <div className="font-bold text-2xl text-primary">Authentic Cuts</div>
-            
-
           </div>
           
           <div className="flex items-center space-x-6">

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { Scissors, User, Sparkles, Layers, PenTool, Baby, Calendar } from "lucide-react";
+import { useRef, useState } from "react";
+import { Scissors, User, Sparkles, Layers, PenTool, Baby, Calendar, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "@/contexts/location-context";
 
@@ -9,6 +9,7 @@ export default function ServicesSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { currentLocation } = useLocation();
+  const [showPrices, setShowPrices] = useState(false);
 
   const handleBookNow = () => {
     window.location.href = `tel:${currentLocation.phone}`;
@@ -114,12 +115,23 @@ export default function ServicesSection() {
             tailored to enhance your individual style.
           </motion.p>
           
-          {/* Book Now CTA */}
+          {/* Price Toggle and Book Now CTA */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.6 }}
+            className="space-y-4"
           >
+            <Button
+              onClick={() => setShowPrices(!showPrices)}
+              variant="outline"
+              className="bg-white hover:bg-gray-50 text-gray-700 px-6 py-3 rounded-full text-md font-semibold transition-all duration-300 transform hover:scale-105 border-2 border-gray-300"
+              size="lg"
+            >
+              {showPrices ? <EyeOff className="mr-2" size={20} /> : <Eye className="mr-2" size={20} />}
+              {showPrices ? 'Hide Prices' : 'View Prices'}
+            </Button>
+            
             <Button
               onClick={handleBookNow}
               className="book-now-pulse bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl border-2 border-red-400 mb-12"
@@ -193,7 +205,7 @@ export default function ServicesSection() {
                   animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.6, delay: 0.3 * index }}
                 >
-                  {service.price}
+                  {showPrices ? service.price : 'View Price Above'}
                 </motion.p>
 
                 {/* Floating particles */}

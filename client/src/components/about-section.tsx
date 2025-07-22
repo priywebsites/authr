@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Phone, Facebook, Calendar, MapPin } from "lucide-react";
+import { Phone, Calendar, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "@/contexts/location-context";
 
@@ -166,21 +166,13 @@ export default function AboutSection() {
                 transition={{ duration: 1, delay: 0.4 }}
               >
                 <div className="text-center p-8">
-                  <motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="w-32 h-32 mx-auto mb-6 flex items-center justify-center"
-                  >
+                  <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center">
                     <img 
                       src="/logo.png" 
-                      alt="Authentic Cuts Barbershop" 
+                      alt="" 
                       className="w-32 h-32 object-contain"
-                      onError={(e) => {
-                        console.error('Logo image failed to load:', e);
-                        e.currentTarget.style.display = 'none';
-                      }}
                     />
-                  </motion.div>
+                  </div>
                   <p className="text-gray-600 text-lg leading-relaxed">
                     Master craftsmanship meets modern precision
                   </p>

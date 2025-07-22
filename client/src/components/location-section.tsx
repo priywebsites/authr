@@ -64,7 +64,7 @@ export default function LocationSection() {
             Find Us <span className="text-primary">Here</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Visit us at our convenient {currentLocation.name.includes('II') ? 'St Cloud' : 'St Cloud'} location. We're easy to find and parking is always available.
+            Visit us at our convenient St Cloud location. We're easy to find and parking is always available.
           </p>
         </motion.div>
 

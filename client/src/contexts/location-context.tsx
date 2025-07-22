@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode } from 'react';
 
 export interface LocationData {
   id: string;
@@ -22,7 +22,7 @@ const locations: LocationData[] = [
   {
     id: 'kissimmee',
     name: 'Authentic Cuts Barbershop',
-    address: '2417 13th St, St Cloud, FL 34769, United States',
+    address: '2909 Canoe Creek Rd, St Cloud, FL 34772, United States',
     phone: '+14077447328',
     googleMapsLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.9234567890!2d-81.311!3d28.247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDE0JzQ5LjIiTiA4McKwMTgnMzkuNiJX!5e0!3m2!1sen!2sus!4v1234567890123',
     hours: {
