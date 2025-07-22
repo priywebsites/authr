@@ -172,64 +172,27 @@ export default function HeroSection() {
         >
           {/* Logo */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: "backOut", delay: 0.2 }}
-            className="mb-8"
+            initial={{ opacity: 0, scale: 0.5, y: -30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 2, ease: "backOut", delay: 0.2 }}
+            whileHover={{ scale: 1.05 }}
+            className="mb-12"
           >
-            <img 
+            <motion.img 
               src="/attached_assets/image0 (10)_1753145187894.jpeg" 
-              alt="Authentic Cuts Logo" 
-              className="w-32 h-32 md:w-40 md:h-40 object-contain mx-auto filter drop-shadow-2xl" 
+              alt="" 
+              className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain mx-auto filter drop-shadow-2xl" 
+              animate={{ 
+                rotateY: [0, 5, -5, 0],
+                scale: [1, 1.02, 1]
+              }}
+              transition={{ 
+                duration: 6, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
             />
           </motion.div>
-
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.8, ease: "backOut" }}
-          >
-{currentLocation.name.includes('II') ? (
-              <>
-                <motion.span
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1.2, delay: 0.3 }}
-                >
-                  Authentic Cuts
-                </motion.span>
-                <br />
-                <motion.span 
-                  className="text-blue-300"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1.2, delay: 0.6 }}
-                >
-                  II
-                </motion.span>
-              </>
-            ) : (
-              <>
-                <motion.span
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1.2, delay: 0.3 }}
-                >
-                  Authentic
-                </motion.span>
-                <br />
-                <motion.span 
-                  className="text-blue-300"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1.2, delay: 0.6 }}
-                >
-                  Cuts
-                </motion.span>
-              </>
-            )}
-          </motion.h1>
           
           <motion.p 
             className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed"

@@ -167,10 +167,20 @@ export default function AboutSection() {
               >
                 <div className="text-center p-8">
                   <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center">
-                    <img 
-                      src="/logo.png" 
+                    <motion.img 
+                      src="/attached_assets/image0 (10)_1753145187894.jpeg" 
                       alt="" 
-                      className="w-32 h-32 object-contain"
+                      className="w-32 h-32 object-contain transition-transform duration-500"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      animate={{ 
+                        scale: [1, 1.05, 1],
+                        rotate: [0, 2, -2, 0]
+                      }}
+                      transition={{ 
+                        duration: 8, 
+                        repeat: Infinity, 
+                        ease: "easeInOut" 
+                      }}
                     />
                   </div>
                   <p className="text-gray-600 text-lg leading-relaxed">
