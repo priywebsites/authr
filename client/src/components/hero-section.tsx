@@ -181,7 +181,7 @@ export default function HeroSection() {
             <motion.img 
               src="/logo.png" 
               alt="" 
-              className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain mx-auto filter drop-shadow-2xl" 
+              className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] object-contain mx-auto filter drop-shadow-2xl" 
               animate={{ 
                 rotateY: [0, 5, -5, 0],
                 scale: [1, 1.02, 1]
