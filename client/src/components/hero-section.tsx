@@ -7,7 +7,7 @@ import storefrontImage from "@assets/Screen Shot 2025-07-19 at 3.18.56 PM_175295
 
 export default function HeroSection() {
   const { currentLocation } = useLocation();
-  
+
   const scrollToServices = () => {
     const element = document.getElementById("services");
     if (element) {
@@ -38,7 +38,7 @@ export default function HeroSection() {
         <div className="w-full h-full flex items-center justify-center">
         </div>
       </motion.div>
-      
+
       <motion.div
         className="absolute bottom-32 right-16 w-16 h-16 bg-blue-300/25 rounded-full floating-slow"
         animate={{ 
@@ -52,7 +52,7 @@ export default function HeroSection() {
           <Star className="text-white" size={24} />
         </div>
       </motion.div>
-      
+
       <motion.div
         className="absolute top-1/2 left-8 w-10 h-10 bg-red-300/40 rounded-full floating"
         animate={{ 
@@ -62,7 +62,7 @@ export default function HeroSection() {
         }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 4 }}
       />
-      
+
       <motion.div
         className="absolute top-32 right-20 w-8 h-8 bg-white/30 rounded-full floating"
         animate={{ 
@@ -71,7 +71,7 @@ export default function HeroSection() {
         }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       />
-      
+
       <motion.div
         className="absolute bottom-20 left-20 w-6 h-6 bg-blue-200/40 rounded-full floating"
         animate={{ 
@@ -175,21 +175,12 @@ export default function HeroSection() {
             className="mb-12"
           >
             <motion.img 
-              src="/new-logo.png" 
-              alt="" 
-              className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] object-contain mx-auto filter drop-shadow-2xl" 
-              animate={{ 
-                rotateY: [0, 5, -5, 0],
-                scale: [1, 1.02, 1]
-              }}
-              transition={{ 
-                duration: 6, 
-                repeat: Infinity, 
-                ease: "easeInOut" 
-              }}
+              src="/logo.png" 
+              alt="Authentic Cuts Logo" 
+              className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] object-contain mx-auto filter drop-shadow-2xl"
             />
           </motion.div>
-          
+
           <motion.p 
             className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
@@ -200,7 +191,7 @@ Premium barbering experience in the heart of {currentLocation.address.includes('
             <br />
             <span className="text-red-300">Where tradition meets modern style.</span>
           </motion.p>
-          
+
           <motion.div 
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             initial={{ opacity: 0, y: 30 }}
