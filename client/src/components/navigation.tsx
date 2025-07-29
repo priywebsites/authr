@@ -52,16 +52,16 @@ export default function Navigation() {
               alt="Authentic Cuts Logo" 
               className="w-12 h-12 object-contain transition-transform duration-300 hover:scale-110" 
             />
-            <div className="font-bold text-2xl text-primary">Authentic Cuts</div>
+          </div>
+          
+          {/* Centered Location Display */}
+          <div className="absolute left-1/2 transform -translate-x-1/2">
+            <div className="font-bold text-2xl text-primary">
+              {currentLocation.name.includes('II') ? 'Authentic Cuts 2' : 'Authentic Cuts 1'}
+            </div>
           </div>
           
           <div className="flex items-center space-x-6">
-            {/* Current Location Display */}
-            <div className="flex items-center space-x-2">
-              <span className="text-sm font-medium text-black">
-                {currentLocation.name.includes('II') ? 'Authentic Cuts 2' : 'Authentic Cuts 1'}
-              </span>
-            </div>
             
             {!isMobile && (
               <div className="hidden md:flex space-x-8">

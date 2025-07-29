@@ -20,14 +20,14 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden parallax bg-gradient-to-br from-primary/40 to-primary-dark/40"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden parallax bg-gradient-to-br from-gray-50 to-white"
       style={{
-        backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.4), rgba(30, 58, 138, 0.4)), url('${storefrontImage}')`,
+        backgroundImage: `linear-gradient(rgba(249, 250, 251, 0.9), rgba(255, 255, 255, 0.9)), url('${storefrontImage}')`,
       }}
     >
       {/* Enhanced Floating Elements */}
       <motion.div
-        className="absolute top-20 left-10 w-12 h-12 bg-red-400/30 rounded-full floating pulse-glow"
+        className="absolute top-20 left-10 w-12 h-12 bg-red-400/60 rounded-full floating pulse-glow"
         animate={{ 
           y: [0, -30, 0],
           rotate: [0, 360, 0],
@@ -40,7 +40,7 @@ export default function HeroSection() {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-32 right-16 w-16 h-16 bg-blue-300/25 rounded-full floating-slow"
+        className="absolute bottom-32 right-16 w-16 h-16 bg-blue-500/40 rounded-full floating-slow"
         animate={{ 
           y: [0, -40, 0],
           x: [0, 20, 0],
@@ -49,12 +49,12 @@ export default function HeroSection() {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       >
         <div className="w-full h-full flex items-center justify-center">
-          <Star className="text-white" size={24} />
+          <Star className="text-gray-700" size={24} />
         </div>
       </motion.div>
 
       <motion.div
-        className="absolute top-1/2 left-8 w-10 h-10 bg-red-300/40 rounded-full floating"
+        className="absolute top-1/2 left-8 w-10 h-10 bg-red-500/60 rounded-full floating"
         animate={{ 
           y: [0, -25, 0],
           scale: [1, 1.3, 1],
@@ -64,7 +64,7 @@ export default function HeroSection() {
       />
 
       <motion.div
-        className="absolute top-32 right-20 w-8 h-8 bg-white/30 rounded-full floating"
+        className="absolute top-32 right-20 w-8 h-8 bg-gray-400/50 rounded-full floating"
         animate={{ 
           y: [0, -35, 0],
           x: [0, -15, 0]
@@ -73,7 +73,7 @@ export default function HeroSection() {
       />
 
       <motion.div
-        className="absolute bottom-20 left-20 w-6 h-6 bg-blue-200/40 rounded-full floating"
+        className="absolute bottom-20 left-20 w-6 h-6 bg-blue-500/60 rounded-full floating"
         animate={{ 
           y: [0, -20, 0],
           rotate: [0, 180, 360]
@@ -83,28 +83,28 @@ export default function HeroSection() {
 
       {/* Additional Enhanced Floating Elements */}
       <motion.div
-        className="absolute top-24 left-1/3 w-5 h-5 bg-red-300/50 rounded-full"
+        className="absolute top-24 left-1/3 w-5 h-5 bg-red-500/70 rounded-full"
         animate={{
           y: [0, -40, 0],
           x: [0, 20, 0],
-          opacity: [0.3, 0.8, 0.3],
+          opacity: [0.5, 1, 0.5],
           scale: [0.8, 1.5, 0.8]
         }}
         transition={{ duration: 11, repeat: Infinity, delay: 1.5 }}
       />
 
       <motion.div
-        className="absolute bottom-32 right-1/3 w-7 h-7 bg-blue-300/35 rounded-full"
+        className="absolute bottom-32 right-1/3 w-7 h-7 bg-blue-500/60 rounded-full"
         animate={{
           y: [0, 30, 0],
           rotate: [0, 180, 360],
-          opacity: [0.4, 0.9, 0.4]
+          opacity: [0.6, 1, 0.6]
         }}
         transition={{ duration: 8, repeat: Infinity, delay: 2.5 }}
       />
 
       <motion.div
-        className="absolute top-1/2 right-12 text-red-300/40"
+        className="absolute top-1/2 right-12 text-red-500/70"
         animate={{
           rotate: [0, -360],
           scale: [0.8, 1.6, 0.8],
@@ -117,7 +117,7 @@ export default function HeroSection() {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-1/3 left-12 w-4 h-4 bg-gradient-to-r from-red-400 to-blue-400 rounded-full"
+        className="absolute bottom-1/3 left-12 w-4 h-4 bg-gradient-to-r from-red-500 to-blue-500 rounded-full"
         animate={{
           y: [0, -35, 0],
           x: [0, -20, 0],
@@ -129,17 +129,17 @@ export default function HeroSection() {
 
       {/* Orbiting particles */}
       <motion.div
-        className="absolute top-1/4 right-1/4 w-3 h-3 bg-red-400/50 rounded-full"
+        className="absolute top-1/4 right-1/4 w-3 h-3 bg-red-500/70 rounded-full"
         animate={{
           x: [0, 50, 0, -50, 0],
           y: [0, -25, -50, -25, 0],
-          opacity: [0.5, 1, 0.5, 1, 0.5]
+          opacity: [0.7, 1, 0.7, 1, 0.7]
         }}
         transition={{ duration: 15, repeat: Infinity }}
       />
 
       <motion.div
-        className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-blue-400/60 rounded-full"
+        className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-blue-500/80 rounded-full"
         animate={{
           x: [0, -40, 0, 40, 0],
           y: [0, 20, 40, 20, 0],
@@ -149,7 +149,7 @@ export default function HeroSection() {
       />
 
       <motion.div
-        className="absolute top-3/4 right-16 text-blue-300/30"
+        className="absolute top-3/4 right-16 text-blue-500/60"
         animate={{
           rotate: [0, 360],
           scale: [1, 1.4, 1],
@@ -182,14 +182,14 @@ export default function HeroSection() {
           </motion.div>
 
           <motion.p 
-            className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.9 }}
           >
 Premium barbering experience in the heart of {currentLocation.address.includes('St Cloud') ? 'St Cloud' : 'Kissimmee'}.
             <br />
-            <span className="text-red-300">Where tradition meets modern style.</span>
+            <span className="text-red-600">Where tradition meets modern style.</span>
           </motion.p>
 
           <motion.div 
@@ -211,7 +211,7 @@ Premium barbering experience in the heart of {currentLocation.address.includes('
 
       {/* Enhanced Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-600"
         animate={{ 
           y: [0, 15, 0],
           opacity: [0.7, 1, 0.7]
