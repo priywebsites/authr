@@ -94,16 +94,7 @@ export default function LocationSelector() {
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                {/* Current Location Badge */}
-                {currentLocation.id === location.id && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="absolute top-4 right-4 bg-primary text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg"
-                  >
-                    Current Location
-                  </motion.div>
-                )}
+
 
                 {/* Floating Background Elements */}
                 <motion.div
@@ -197,16 +188,24 @@ export default function LocationSelector() {
                     </div>
                   </motion.div>
 
-                  {/* Switch Button */}
+                  {/* Action Buttons */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.6, delay: 1.2 + (index * 0.2) }}
+                    className="space-y-3"
                   >
+                    <Button
+                      onClick={() => window.location.href = `tel:${location.phone}`}
+                      className="w-full py-4 text-lg font-bold rounded-2xl bg-red-500 hover:bg-red-600 text-white transition-all duration-300 transform hover:scale-105"
+                    >
+                      <Phone className="mr-2" size={20} />
+                      Book Now - Call Us!
+                    </Button>
                     <Button
                       onClick={() => switchLocation(location.id)}
                       disabled={currentLocation.id === location.id}
-                      className={`w-full py-4 text-lg font-bold rounded-2xl transition-all duration-300 transform ${
+                      className={`w-full py-3 text-lg font-bold rounded-2xl transition-all duration-300 transform ${
                         currentLocation.id === location.id
                           ? 'bg-primary text-white cursor-default'
                           : 'bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 hover:from-primary hover:to-blue-600 hover:text-white hover:scale-105'

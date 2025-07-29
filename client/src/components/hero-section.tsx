@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Phone, Scissors, Star } from "lucide-react";
+import { ChevronDown, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "@/contexts/location-context";
 import storefrontImage from "@assets/Screen Shot 2025-07-19 at 3.18.56 PM_1752956488275.png";
@@ -15,16 +15,14 @@ export default function HeroSection() {
     }
   };
 
-  const handleBookNow = () => {
-    window.location.href = `tel:${currentLocation.phone}`;
-  };
+
 
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden parallax bg-gradient-to-br from-primary/80 to-primary-dark/80"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden parallax bg-gradient-to-br from-primary/40 to-primary-dark/40"
       style={{
-        backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.75), rgba(30, 58, 138, 0.75)), url('${storefrontImage}')`,
+        backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.4), rgba(30, 58, 138, 0.4)), url('${storefrontImage}')`,
       }}
     >
       {/* Enhanced Floating Elements */}
@@ -38,7 +36,6 @@ export default function HeroSection() {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       >
         <div className="w-full h-full flex items-center justify-center">
-          <Scissors className="text-white" size={20} />
         </div>
       </motion.div>
       
@@ -160,7 +157,6 @@ export default function HeroSection() {
         }}
         transition={{ duration: 14, repeat: Infinity, delay: 3 }}
       >
-        <Scissors size={20} />
       </motion.div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
@@ -211,15 +207,6 @@ Premium barbering experience in the heart of {currentLocation.address.includes('
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 1.2 }}
           >
-            <Button
-              onClick={handleBookNow}
-              className="book-now-pulse bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-110 hover:shadow-2xl border-2 border-red-400"
-              size="lg"
-            >
-              <Phone className="mr-2" size={20} />
-              Book Now - Call Us!
-            </Button>
-            
             <Button
               onClick={scrollToServices}
               className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg border-2 border-blue-400"

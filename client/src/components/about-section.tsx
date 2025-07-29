@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Phone, Calendar, MapPin } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
 import { useLocation } from "@/contexts/location-context";
 
 export default function AboutSection() {
@@ -10,9 +9,7 @@ export default function AboutSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { currentLocation } = useLocation();
 
-  const handleBookNow = () => {
-    window.location.href = `tel:${currentLocation.phone}`;
-  };
+
 
   return (
     <section id="about" className="py-20 bg-white relative overflow-hidden" ref={ref}>
@@ -83,71 +80,9 @@ export default function AboutSection() {
             >
               At Authentic Cuts Barbershop, we believe every cut tells a story. Our master barbers combine traditional techniques with modern precision to deliver cuts that enhance your natural style and confidence.
             </motion.p>
-
-            {/* Contact Information */}
-            <div className="space-y-4 mb-8">
-              <motion.div 
-                className="flex items-center space-x-4"
-                initial={{ opacity: 0, x: -30 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                <motion.div 
-                  className="w-12 h-12 bg-primary rounded-full flex items-center justify-center rotate-hover"
-                  whileHover={{ scale: 1.1, rotate: 10 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Phone className="text-white" size={20} />
-                </motion.div>
-                <div>
-                  <p className="font-semibold text-gray-800">Call us today</p>
-                  <a
-                    href={`tel:${currentLocation.phone}`}
-                    className="text-primary hover:text-primary-dark transition-colors"
-                  >
-                    {currentLocation.phone}
-                  </a>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                className="flex items-center space-x-4"
-                initial={{ opacity: 0, x: -30 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
-                <motion.div 
-                  className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center rotate-hover"
-                  whileHover={{ scale: 1.1, rotate: -10 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <MapPin className="text-white" size={20} />
-                </motion.div>
-                <div>
-                  <p className="font-semibold text-gray-800">Visit us</p>
-                  <p className="text-primary hover:text-primary-dark transition-colors">
-                    {currentLocation.address}
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Book Now Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 1 }}
-            >
-              <Button
-                onClick={handleBookNow}
-                className="book-now-pulse bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl border-2 border-red-400"
-                size="lg"
-              >
-                <Calendar className="mr-2" size={20} />
-                Book Your Appointment Now!
-              </Button>
-            </motion.div>
           </motion.div>
+
+
 
           <motion.div
             initial={{ opacity: 0, x: 50 }}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Building2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useLocation } from "@/contexts/location-context";
@@ -57,10 +57,9 @@ export default function Navigation() {
           
           <div className="flex items-center space-x-6">
             {/* Current Location Display */}
-            <div className="flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-lg border border-primary/20">
-              <Building2 size={16} className="text-primary" />
-              <span className="text-sm font-medium text-gray-700">
-                {currentLocation.name.includes('II') ? 'Location II' : 'Location I'}
+            <div className="flex items-center space-x-2">
+              <span className="text-sm font-medium text-black">
+                {currentLocation.name.includes('II') ? 'Authentic Cuts 2' : 'Authentic Cuts 1'}
               </span>
             </div>
             

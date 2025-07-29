@@ -1,4 +1,4 @@
-import { Phone, Facebook, MapPin, Calendar } from "lucide-react";
+import { Phone, Facebook, MapPin, Calendar, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "@/contexts/location-context";
 
@@ -92,6 +92,19 @@ export default function Footer() {
                   className="hover:text-red-400 transition-colors duration-300 font-medium"
                 >
                   Follow us on Facebook
+                </a>
+              </div>
+              <div className="flex items-center gap-3 group">
+                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center group-hover:bg-red-500 transition-colors duration-300">
+                  <Instagram size={16} />
+                </div>
+                <a
+                  href="https://www.instagram.com/authentic_cuts_saintcloud/?hl=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-red-400 transition-colors duration-300 font-medium"
+                >
+                  Follow us on Instagram
                 </a>
               </div>
               <div className="flex items-center gap-3 group">
