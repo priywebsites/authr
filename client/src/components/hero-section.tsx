@@ -175,15 +175,9 @@ export default function HeroSection() {
             className="mb-12"
           >
             <motion.img 
-              src="/authentic-cuts-logo.png" 
-              alt="Authentic Cuts Logo" 
+              src="/new-logo.png" 
+              alt="" 
               className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] object-contain mx-auto filter drop-shadow-2xl" 
-              onError={(e) => {
-                console.error('Logo failed to load:', e.target.src);
-                console.log('Trying fallback logo...');
-                e.target.src = '/logo.png';
-              }}
-              onLoad={() => console.log('Logo loaded successfully from:', window.location.origin + '/authentic-cuts-logo.png')}
               animate={{ 
                 rotateY: [0, 5, -5, 0],
                 scale: [1, 1.02, 1]
