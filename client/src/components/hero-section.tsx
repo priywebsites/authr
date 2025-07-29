@@ -176,8 +176,13 @@ export default function HeroSection() {
           >
             <motion.img 
               src="/new-logo.png" 
-              alt="" 
+              alt="Authentic Cuts Logo" 
               className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] object-contain mx-auto filter drop-shadow-2xl" 
+              onError={(e) => {
+                console.error('Logo failed to load:', e.target.src);
+                e.target.style.display = 'none';
+              }}
+              onLoad={() => console.log('Logo loaded successfully')}
               animate={{ 
                 rotateY: [0, 5, -5, 0],
                 scale: [1, 1.02, 1]
